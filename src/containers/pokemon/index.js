@@ -8,8 +8,11 @@ import PokeService from '../../services/pokeservice';
 import './pokemon-container.css';
 
 const PokemonContainer = () => {
+  let pokemons = []
   
-  let pokemons = PokeService.getPokemons(0)
+  PokeService.getPokemons(0).then(val =>{
+    pokemons = val
+  })
 
   return (
     <div className="pokemon-container">
