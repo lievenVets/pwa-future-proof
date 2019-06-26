@@ -8,10 +8,18 @@ import PokeService from '../../services/pokeservice';
 import './pokemon-container.css';
 
 const PokemonContainer = () => {
+  
+  let pokemons = PokeService.getPokemons(0)
 
   return (
     <div className="pokemon-container">
-
+        <Loader/>
+        <Pagination/>
+        {
+          pokemons.map(val => {
+            return <Pokemon pokemon={val}/>
+          })
+        }
     </div>
   )
 };
